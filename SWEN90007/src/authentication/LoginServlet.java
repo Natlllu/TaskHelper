@@ -27,11 +27,11 @@ public class LoginServlet extends HttpServlet{
 		String password  = request.getParameter("password");
 		UserMapper login = new UserMapper();
 		
-		boolean result = login.findCustomer(email, password);
+		boolean result = login.findUser(email, password);
 		//System.out.print(result);
 		if(result==true) {
-			
-			request.getRequestDispatcher("/success.jsp").forward(request, response);
+//			request.setAttribute("user_id", login.ExtractUserID(email, password));
+			request.getRequestDispatcher("/ViewTasks").forward(request, response);
 		}		
 		else {
 			request.getRequestDispatcher("/error.jsp").forward(request, response);

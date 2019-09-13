@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dataMapper.TaskMapper;
+import dataMapper.UserMapper;
 import model.Task;
 
 /**
@@ -37,7 +38,13 @@ public class ViewTasks extends HttpServlet {
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		List<Task> tasks = new ArrayList<Task>();
 		
-		tasks = TaskMapper.findTasks();
+//		int user_id = Integer.parseInt(request.getParameter("user_id"));
+		String email = request.getParameter("email");
+		String password  = request.getParameter("password");
+		
+		int user_id = UserMapper.ExtractUserID(email, password);
+		
+		tasks = TaskMapper.findTasks(user_id);
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();

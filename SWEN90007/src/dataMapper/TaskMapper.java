@@ -14,14 +14,17 @@ import model.Task;
 
 public class TaskMapper {
 	private static final String findAvailableTasks =
-			"SELECT * from tasks";
+			"SELECT * from tasks WHERE customer_id=?";
 	
-	public static List<Task> findTasks(){
+	public static List<Task> findTasks(int user_id){
 		List<Task> result = new ArrayList<>();
 		try{
 			PreparedStatement stmt  = DBConnection.prepare(findAvailableTasks);
 			
+			stmt.setInt(1, user_id );
 			ResultSet rs = stmt.executeQuery();
+			
+			
 			while (rs.next()){
 	//			System.out.println(rs.getInt(1));
 				int task_id = rs.getInt(1);

@@ -10,7 +10,7 @@ import database.DBConnection;
 public class UserMapper {
 	private static final String findUserStatement = 
 			"SELECT * from users WHERE email=? and password=?";
-	public boolean findCustomer(String email, String password) {
+	public boolean findUser(String email, String password) {
 		boolean m=false;
 		try {
 			PreparedStatement stmt = DBConnection.prepare(findUserStatement);
@@ -26,6 +26,24 @@ public class UserMapper {
 		
 		}
 		return m;
+	}
+	
+	public static int ExtractUserID(String email, String password) {
+		int user_ID = 0;
+		try {
+			PreparedStatement stmt = DBConnection.prepare(findUserStatement);
+			stmt.setString(1, email);
+			stmt.setString(2, password);
+			ResultSet rs = stmt.executeQuery();		
+			if(rs.next()){
+				user_ID = rs.getInt("id");
+			}else{
+				user_ID = 0;
+			}		
+		}catch(SQLException e) {
+		
+		}
+		return user_ID;
 	}
 	
 	private static final String insertUserStatement = 
