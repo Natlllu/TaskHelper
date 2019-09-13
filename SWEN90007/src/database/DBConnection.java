@@ -30,7 +30,7 @@ public class DBConnection {
 			DriverManager.registerDriver(new org.postgresql.Driver());
 			
 			dbConnection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
-			dbConnection.setAutoCommit(false);
+			dbConnection.setAutoCommit(true);
 			
 			return dbConnection;
 		}catch(SQLException e){
