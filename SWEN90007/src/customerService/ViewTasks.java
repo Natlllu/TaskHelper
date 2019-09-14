@@ -60,17 +60,20 @@ public class ViewTasks extends HttpServlet {
 		out.println("<div class='container'>");
 		
 		out.print("<h1>View Tasks</h1>");
+		out.print("<button onclick = \"window.location.href = 'http://localhost:8080/SWEN90007/addTask.jsp'\">Add New Task</button>");
 		
 		out.println("<table class='table table-bordered table-striped'>");
-		out.println("<tr><th>Task</th><th>Date</th><th>Time</th><th>Location</th><th>Budget</th><th>View Details</th>");
+		out.println("<tr><th>Task</th><th>Time</th><th>Location</th><th>Budget</th><th>Details</th><th>Delete</th>");
 		
 		for (Task task : tasks) {
-			out.println("<form action=\"AddToCart\" method=\"post\">");
-			out.print("<tr><td>" + task.getTask_name() + "</td><td>" + task.getTask_date() +
-					"</td><td>" + task.getTask_time() + "</td><td>" +task.getLocation() + "</td><td>" + task.getTask_budget() +
+			out.println("<form  method=\"post\">");
+			out.print("<tr><td>" + task.getTask_name() + "</td><td>" + task.getTask_time() +
+					"</td><td>" +task.getLocation() + "</td><td>" + task.getTask_budget() +
 					"</td>" +
-					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"isbn\" value=\"" +
-					task.getTask_name() + "\" class=\"btn btn-default\">View Details</button></td></tr>");
+					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Details\" value=\"" +
+					task.getTask_name() + "\" formaction=\"../Details\" class=\"btn btn-default\">View Details</button></td>" +
+					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Delete\" value=\"" +
+					task.getTask_id() + "\" formaction=\"../DeleteTask\" class=\"btn btn-default\">Delete Task</button></td></tr>");
 			
 			out.println("</form>");
 		}

@@ -1,29 +1,31 @@
 package model;
 
-import java.sql.Date;
-import java.sql.Time;
+
+import java.sql.Timestamp;
 
 public class Task {
 	private int task_id;
 	private int customer_id;
 	private int expert_id;
 	private String task_name;
-	private Date task_date;
-	private Time task_time;
-    private String location;
+//	private Date task_date;
+//	private Time task_time;
+	private Timestamp task_time;
+	private String location;
     private String contact;
     private String task_description;
     private float task_budget;
     private int task_status;
     
-    public Task(int task_id, int customer_id, int expert_id, String task_name, Date task_date, Time task_time,
+    public Task(int task_id, int customer_id, int expert_id, String task_name, Timestamp task_time,
 			String location, String contact, String task_description, float task_budget, int task_status) {
 		super();
 		this.task_id = task_id;
 		this.customer_id = customer_id;
 		this.expert_id = expert_id;
 		this.task_name = task_name;
-		this.task_date = task_date;
+//		this.task_date = task_date;
+//		this.task_time = task_time;
 		this.task_time = task_time;
 		this.location = location;
 		this.contact = contact;
@@ -56,16 +58,22 @@ public class Task {
 	public void setTask_name(String task_name) {
 		this.task_name = task_name;
 	}
-	public Date getTask_date() {
-		return task_date;
-	}
-	public void setTask_date(Date task_date) {
-		this.task_date = task_date;
-	}
-	public Time getTask_time() {
+//	public Date getTask_date() {
+//		return task_date;
+//	}
+//	public void setTask_date(Date task_date) {
+//		this.task_date = task_date;
+//	}
+//	public Time getTask_time() {
+//		return task_time;
+//	}
+//	public void setTask_time(Time task_time) {
+//		this.task_time = task_time;
+//	}
+	public Timestamp getTask_time() {
 		return task_time;
 	}
-	public void setTask_time(Time task_time) {
+	public void setTask_time(Timestamp task_time) {
 		this.task_time = task_time;
 	}
 	public String getLocation() {
