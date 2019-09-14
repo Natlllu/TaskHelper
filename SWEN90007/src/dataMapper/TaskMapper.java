@@ -62,18 +62,40 @@ public class TaskMapper {
 		
 	}
 	
-	private static final String insertUserStatement = 
-			"INSERT INTO tasks (task_name,task_time,location,contact,task_description,budget) VALUES (?, ?, ?, ?, ?, ?);";
+	private static final String insertTaskStatement = 
+			"INSERT INTO tasks (task_name,customer_id,task_time,location,contact,task_description,budget) VALUES (?, ?, ?, ?, ?, ?, ?);";
 	
-	public static void insertTask(String task_name, Timestamp task_time, String location, String contact, String task_description, float budget) {
+	public static void insertTask(String task_name, int customer_id, Timestamp task_time, String location, String contact, String task_description, float budget) {
 		try {
-			PreparedStatement stmt = DBConnection.prepare(insertUserStatement);
-			stmt.setString(1, task_name);			
+			PreparedStatement stmt = DBConnection.prepare(insertTaskStatement);
+			stmt.setString(1, task_name);
+			stmt.setInt(2, customer_id);
+			stmt.setTimestamp(3, task_time);
+			stmt.setString(4, location);
+			stmt.setString(5, contact);
+			stmt.setString(6, task_description);
+			stmt.setFloat(7, budget);						
+			stmt.executeUpdate();
+		
+		}catch(SQLException e) {
+			
+		}
+	}
+	
+	private static final String updateTaskStatement = 
+			"UPDATE tasks SET task_name=?, task_time=?, location=?, contact=?, task_description=?, budget=?"
+			+ " WHERE task_id=?;";
+	
+	public static void updateTask(String task_name, Timestamp task_time, String location, String contact, String task_description, float budget, int task_id) {
+		try {
+			PreparedStatement stmt = DBConnection.prepare(updateTaskStatement);
+			stmt.setString(1, task_name);
 			stmt.setTimestamp(2, task_time);
 			stmt.setString(3, location);
 			stmt.setString(4, contact);
 			stmt.setString(5, task_description);
-			stmt.setFloat(6, budget);						
+			stmt.setFloat(6, budget);	
+			stmt.setInt(7, task_id);
 			stmt.executeUpdate();
 		
 		}catch(SQLException e) {

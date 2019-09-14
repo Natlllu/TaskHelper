@@ -1,10 +1,7 @@
 package customerService;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,6 +51,7 @@ public class AddTask extends HttpServlet {
 //		}
 //				;
 		String  task_name  = request.getParameter("task_name");
+		int customer_id = Integer.parseInt(request.getParameter("customer_id"));
 		
 //		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
 //	    Date parsedDate = null;
@@ -75,15 +73,22 @@ public class AddTask extends HttpServlet {
 		String contact  = request.getParameter("contact");		
 		String task_description  = request.getParameter("task_description");
 		Float budget=Float.parseFloat(request.getParameter("budget"));
-		TaskMapper.insertTask(task_name, task_time ,location, contact,task_description,budget);
+		TaskMapper.insertTask(task_name, customer_id, task_time ,location, contact,task_description,budget);
 		System.out.println("success");
 		
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		System.out.println(email);
+		System.out.println(password);
+		
 
-		
-		
+		request.setAttribute("email", email);
+		request.setAttribute("password", password);
 		
 
-//	    request.getRequestDispatcher("/ViewTasks.jsp").forward(request, response);
+	    request.getRequestDispatcher("/authentication/LoginServlet").forward(request, response);
+//		response.sendRedirect("/products");
 	}
 
 }

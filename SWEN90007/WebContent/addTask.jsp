@@ -7,15 +7,33 @@
 <title>Add a Task</title>
 </head>
 <body>
+<h3> My userID is ${customer_id} (just for test)</h3>
+<h3> My email is ${email} (just for test)</h3>
+<h3> My password is ${password} (just for test)</h3>
 <div>
 <form action="AddTask" method="post">
 <table>
 <tr>
-    <th>Task Title</th>
+    <th>Task Name</th>
     <th><input type='text' name="task_name"></input></th>
   </tr>
       <tr>
-    <th>Task time</th>
+       
+      <th><input type="hidden" name="customer_id" value= "${customer_id}" ></input></th>
+      </tr>
+      <tr> 
+      <tr>
+       
+      <th><input type="hidden" name="email" value= "${email}" ></input></th>
+      </tr>
+      <tr> 
+      <tr>
+       
+      <th><input type="hidden" name="password" value= "${password}" ></input></th>
+      </tr>
+      <tr> 
+      
+    <th>Task Time</th>
     <th><input type='text' name="task_time" ></input></th>
   </tr>
   <tr>
