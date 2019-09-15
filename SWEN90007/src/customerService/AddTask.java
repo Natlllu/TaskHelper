@@ -88,6 +88,7 @@ public class AddTask extends HttpServlet {
 		
 
 	    request.getRequestDispatcher("/authentication/LoginServlet").forward(request, response);
+	    response.sendRedirect("/authentication/LoginServlet");
 //		response.sendRedirect("/products");
 	}
 

@@ -7,9 +7,9 @@
 <title>Add a Task</title>
 </head>
 <body>
-<h3> My userID is ${customer_id} (just for test)</h3>
+<%-- <h3> My userID is ${customer_id} (just for test)</h3>
 <h3> My email is ${email} (just for test)</h3>
-<h3> My password is ${password} (just for test)</h3>
+<h3> My password is ${password} (just for test)</h3> --%>
 <div>
 <form action="AddTask" method="post">
 <table>
@@ -55,7 +55,7 @@
   </tr>
     <tr>
 
-    <th><input type="submit" value="Post"/>  </th>
+    <th><input type="submit" value="Add Task"/>  </th>
   </tr>
   
         </table>

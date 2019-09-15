@@ -52,7 +52,7 @@ public class PassDetails extends HttpServlet {
 		request.setAttribute("task_description", task_description);
 		request.setAttribute("budget", budget);
 		request.setAttribute("task_status", task_status);
-		request.getRequestDispatcher("updateTask.jsp").forward(request, response);
+		request.getRequestDispatcher("../updateTask.jsp").forward(request, response);
 
 	}
 

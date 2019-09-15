@@ -1,6 +1,8 @@
 package customerService;
 
 import java.io.IOException;
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +39,7 @@ public class UpdateTask extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+//		doGet(request, response);
 		
 		int task_id = Integer.parseInt(request.getParameter("task_id"));
 		String email = request.getParameter("email");
@@ -59,8 +61,10 @@ public class UpdateTask extends HttpServlet {
 		request.setAttribute("email", email);
 		request.setAttribute("password", password);
 		
-
-	    request.getRequestDispatcher("/authentication/LoginServlet").forward(request, response);
+//		ServletContext context= getServletContext();
+//	    request.getRequestDispatcher("/authentication/LoginServlet").forward(request, response);
+		request.getRequestDispatcher("/authentication/LoginServlet").forward(request, response);
+//		response.sendRedirect(request.getContextPath() + "/authentication/LoginServlet");
 	}
 
 }

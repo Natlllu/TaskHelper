@@ -34,24 +34,12 @@ public class ViewTasks extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		List<Task> tasks = new ArrayList<Task>();
-//		List<Object> user_info = new ArrayList<Object>();
-		
-//		int user_id = Integer.parseInt(request.getParameter("user_id"));
 		String email = request.getParameter("email");
-		String password  = request.getParameter("password");
-		
-		int user_id = UserMapper.ExtractUserID(email, password);
-		
-//		user_info.add(user_id);
-//		user_info.add(email);
-//		user_info.add(password);
-//		System.out.println(user_id);
-		
-		tasks = TaskMapper.findTasks(user_id);
-		
+		String password  = request.getParameter("password");	
+		int user_id = UserMapper.ExtractUserID(email, password);	
+		tasks = TaskMapper.findTasks(user_id);	
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
@@ -70,22 +58,10 @@ public class ViewTasks extends HttpServlet {
 		out.println("<input type=\"hidden\" name=\"email\" value=\"" + email + "\" />");
 		out.println("<input type=\"hidden\" name=\"password\" value=\"" + password + "\" />");
 		out.println("<tr><td><button type=\"submit\" name=\"addTask\" value=\"" +
-					user_id + "\" formaction=\"../SendID\" class=\"btn btn-default\">Add Task</button></td></tr>");
-		
-		out.println("<form  method=\"post\">");
-		out.println("<tr><td><button type=\"submit\" name=\"logout\" value=\"" +
-					user_id + "\" formaction=\"../LogoutServlet\" class=\"btn btn-default\">Logout</button></td></tr>");
-		
-//		out.println("<tr><td><button type=\"submit\" name=\"customer_id\" value=\"" +
-//				user_id + "\" formaction=\"../addTask.jsp\" class=\"btn btn-default\">Add Task</button></td></tr>");
+					user_id + "\" formaction=\"../customerService/SendID\" class=\"btn btn-default\">Add Task</button></td></tr>");
 		
 		out.println("</form>");
-		
-		
-		
-//		out.print("<button name=\"addNewTask\" onclick = \"window.location.href = 'http://localhost:8080/SWEN90007/addTask.jsp'\" value=\"" +
-//					user_id + "\" >Add New Task</button>");
-		
+				
 		out.println("<table class='table table-bordered table-striped'>");
 		out.println("<tr><th>Task</th><th>Time</th><th>Location</th><th>Budget</th><th>Details</th><th>Delete</th>");
 		
@@ -105,23 +81,20 @@ public class ViewTasks extends HttpServlet {
 			out.print("<tr><td>" + task.getTask_name() + "</td><td>" + task.getTask_time() +
 					"</td><td>" +task.getLocation() + "</td><td>" + task.getTask_budget() +
 					"</td>" +
-					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Details\" formaction=\"../ViewDetails\" class=\"btn btn-default\">View Details</button></td>" +
+					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Details\" formaction=\"../customerService/ViewDetails\" class=\"btn btn-default\">View Details</button></td>" +
 					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Delete\" value=\"" +
-					task.getTask_id() + "\" formaction=\"../DeleteTask\" class=\"btn btn-default\">Delete Task</button></td></tr>");
+					task.getTask_id() + "\" formaction=\"../customerService/DeleteTask\" class=\"btn btn-default\">Delete Task</button></td></tr>");
 			
 			out.println("</form>");
 		}
 		
-
-		
 		out.println("</table>");
 		out.println("</div>");
-//		out.println("<form  method=\"post\">");
-//		out.println("<button type=\"submit\" name=\"Logout\" formaction=\"../LogoutServlet\" class=\"btn btn-default\">Logout</button>");
-//		out.println("</form>");
+		out.println("<form  method=\"post\">");
+		out.println("<tr><td><button type=\"submit\" name=\"logout\" value=\"" +
+					user_id + "\" formaction=\"../LogoutServlet\" class=\"btn btn-default\">Logout</button></td></tr>");
 		out.println("</body>");
 		out.println("</html>");
-		
 		out.close();
 	}
 

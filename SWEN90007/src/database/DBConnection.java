@@ -5,10 +5,13 @@ import java.sql.*;
 
 public class DBConnection {
 	
-	private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/taskhelper";
+	private static final String DB_CONNECTION = "jdbc:postgresql://ec2-184-73-232-93.compute-1.amazonaws.com:5432/deie6leb2r99i3";
+	private static final String DB_USER = "zarrruynvvqdla";
+	private static final String DB_PASSWORD = "daba36a40abf811b01599359c31754cdca92726547c5ddb6a25a267c9640e647";
 	
-	private static final String DB_USER = "postgres";
-	private static final String DB_PASSWORD = "123456";
+//	private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/taskhelper";
+//	private static final String DB_USER = "postgres";
+//	private static final String DB_PASSWORD = "123456";
 	
 	static Connection dbConnection = null;
 	

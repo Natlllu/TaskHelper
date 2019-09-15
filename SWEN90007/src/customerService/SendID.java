@@ -35,7 +35,7 @@ public class SendID extends HttpServlet {
 		request.setAttribute("customer_id", customer_id);
 		request.setAttribute("email", email);
 		request.setAttribute("password", password);
-		request.getRequestDispatcher("addTask.jsp").forward(request, response);
+		request.getRequestDispatcher("../addTask.jsp").forward(request, response);
 	}
 
 	/**

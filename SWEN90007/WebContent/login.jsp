@@ -11,13 +11,16 @@
 
 </head>
 <body>
+<h1>Task-Helper Login</h1>
 <form action="authentication/LoginServlet" method="post">
 Email: <input type="text" name="email"><br>
 Password: <input type="password" name="password"><br>
 <input type="submit" value="Login">
-
-
-
 </form>
+
+<form  method="post">
+<button type="submit" name="logout" formaction="register.jsp" class="btn btn-default">Register</button>
+</form>
+					
 </body>
 </html>

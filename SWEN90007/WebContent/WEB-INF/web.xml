@@ -13,11 +13,67 @@
     <url-pattern>/authentication/LoginServlet</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>authentication.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/authentication/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>authentication.RegisterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/authentication/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewDetails</servlet-name>
+    <servlet-class>customerService.ViewDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewDetails</servlet-name>
+    <url-pattern>/customerService/ViewDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PassDetails</servlet-name>
+    <servlet-class>customerService.PassDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PassDetails</servlet-name>
+    <url-pattern>/customerService/PassDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateTask</servlet-name>
+    <servlet-class>customerService.UpdateTask</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateTask</servlet-name>
+    <url-pattern>/customerService/UpdateTask</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteTask</servlet-name>
+    <servlet-class>customerService.DeleteTask</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteTask</servlet-name>
+    <url-pattern>/customerService/DeleteTask</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SendID</servlet-name>
+    <servlet-class>customerService.SendID</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SendID</servlet-name>
+    <url-pattern>/customerService/SendID</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddTask</servlet-name>
+    <servlet-class>customerService.AddTask</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddTask</servlet-name>
+    <url-pattern>/customerService/AddTask</url-pattern>
   </servlet-mapping>
 </web-app>

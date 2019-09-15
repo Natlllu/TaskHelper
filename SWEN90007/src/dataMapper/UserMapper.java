@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import database.DBConnection;
+import model.User;
 
 
 public class UserMapper {
@@ -26,6 +27,29 @@ public class UserMapper {
 		
 		}
 		return m;
+	}
+	
+	public static User ExtractUserObject(String email, String password) {
+		User user = null;
+		try {
+			PreparedStatement stmt = DBConnection.prepare(findUserStatement);
+			stmt.setString(1, email);
+			stmt.setString(2, password);
+			ResultSet rs = stmt.executeQuery();		
+			if(rs.next()){
+				int user_ID = rs.getInt("id");
+				String contact = rs.getString("user_contact");
+				int user_type = rs.getInt("user_type");
+				String user_name = rs.getString("user_name");
+				user = new User(user_ID, email, password, user_name, contact, user_type);
+				
+			}else{
+				
+			}		
+		}catch(SQLException e) {
+		
+		}
+		return user;
 	}
 	
 	public static int ExtractUserID(String email, String password) {

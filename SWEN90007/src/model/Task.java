@@ -8,14 +8,13 @@ public class Task {
 	private int customer_id;
 	private int expert_id;
 	private String task_name;
-//	private Date task_date;
-//	private Time task_time;
 	private Timestamp task_time;
 	private String location;
     private String contact;
     private String task_description;
     private float task_budget;
     private int task_status;
+    private User user;
     
     public Task(int task_id, int customer_id, int expert_id, String task_name, Timestamp task_time,
 			String location, String contact, String task_description, float task_budget, int task_status) {
@@ -107,6 +106,17 @@ public class Task {
 		this.task_status = task_status;
 	}
     
-    
+//    void load(){
+//    	 
+//    	
+//    	if (this.lastName == null) {
+//    		this.lastName = record.get("last_name"); }
+//    		if (this.firstName == null) {
+//    		this.firstName = record.get("first_name");
+//    		}
+//    		if (this.numberOfDependents == -1) {
+//    		this.numberOfDependents = Integer.parseInt(record.get("number_of_dependents");
+//    		}
+//    }
 
 }

@@ -1,14 +1,30 @@
 package model;
 
+import dataMapper.UserMapper;
+
 public class User {
-	private int id;
+	private int id = -1;
 	private String email;
 	private String password;
 	private String user_name;
 	private String user_contact;
-	private int user_type;
+	private int user_type = -1;
+	
+	public User(int id, String email, String password, String user_name, String user_contact, int user_type) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.user_name = user_name;
+		this.user_contact = user_contact;
+		this.user_type = user_type;
+	}
+
 	
 	public int getUser_id() {
+		if (this.id == -1){
+			load();
+		}
 		return id;
 	}
 
@@ -17,10 +33,16 @@ public class User {
 	}
 
 	public String getUser_name() {
+		if (this.user_name == null){
+			load();
+		}
 		return user_name;
 	}
 
 	public void setUser_name(String user_name) {
+		if (this.user_name == null){
+			load();
+		}
 		this.user_name = user_name;
 	}
 
@@ -41,6 +63,9 @@ public class User {
 	}
 	
 	public int get_user_type(){
+		if (this.user_type == -1){
+			load();
+		}
 		return this.user_type;
 	}
 	
@@ -56,5 +81,20 @@ public class User {
 		
 	}
 	
+	void load(){
+		User user = UserMapper.ExtractUserObject(this.email, this.password);	
+			if (this.id == -1) {
+			this.id = user.getUser_id();
+			}
+			if (this.user_type == -1) {
+			this.user_type = user.get_user_type();
+			}
+			if (this.user_contact == null) {
+			this.user_contact = user.getUser_contact();
+			}
+			if (this.user_name == null) {
+			this.user_name = user.getUser_name();
+			}
+	}
 
 }
