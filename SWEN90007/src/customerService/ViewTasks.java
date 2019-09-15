@@ -63,9 +63,19 @@ public class ViewTasks extends HttpServlet {
 		out.println("</form>");
 				
 		out.println("<table class='table table-bordered table-striped'>");
-		out.println("<tr><th>Task</th><th>Time</th><th>Location</th><th>Budget</th><th>Details</th><th>Delete</th>");
+		out.println("<tr><th>Task</th><th>Time</th><th>Location</th><th>Budget</th><th>TaskStatus</th><th>Details</th><th>Delete</th></tr>");
 		
 		for (Task task : tasks) {
+			String status = "";
+			if (task.getTask_status() == 0){
+				status = "unaccepted";
+			}else if(task.getTask_status() == 1){
+				status = "accepted and processing";
+			}else if(task.getTask_status() == 2){
+				status = "finished and to be confirmed";
+			}else if(task.getTask_status() == 3){
+				status = "finished and closed";
+			}
 			out.println("<form  method=\"post\">");
 			out.println("<input type=\"hidden\" name=\"email\" value=\"" + email + "\" />");
 			out.println("<input type=\"hidden\" name=\"password\" value=\"" + password + "\" />");
@@ -80,11 +90,15 @@ public class ViewTasks extends HttpServlet {
 			out.println("<input type=\"hidden\" name=\"task_status\" value=\"" + task.getTask_status() + "\" />");
 			out.print("<tr><td>" + task.getTask_name() + "</td><td>" + task.getTask_time() +
 					"</td><td>" +task.getLocation() + "</td><td>" + task.getTask_budget() +
-					"</td>" +
-					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Details\" formaction=\"../customerService/ViewDetails\" class=\"btn btn-default\">View Details</button></td>" +
-					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Delete\" value=\"" +
-					task.getTask_id() + "\" formaction=\"../customerService/DeleteTask\" class=\"btn btn-default\">Delete Task</button></td></tr>");
+					"</td><td>" + status + "</td>" +
+					"<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Details\" formaction=\"../customerService/ViewDetails\" class=\"btn btn-default\">View Details</button></td>");
 			
+			if(status == "unaccepted"){
+					out.print("<td colspan=\"2\" align=\"center\"><button type=\"submit\" name=\"Delete\" value=\"" +
+					task.getTask_id() + "\" formaction=\"../customerService/DeleteTask\" class=\"btn btn-default\">Delete Task</button></td></tr>");
+			}else{
+				
+			}
 			out.println("</form>");
 		}
 		

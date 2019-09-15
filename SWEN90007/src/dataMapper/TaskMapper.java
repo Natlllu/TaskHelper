@@ -102,5 +102,20 @@ public class TaskMapper {
 			
 		}
 	}
+	
+	private static final String confirmTaskStatement = 
+			"UPDATE tasks SET task_status=3"
+			+ " WHERE task_id=?;";
+	
+	public static void confirmTask(int task_id) {
+		try {
+			PreparedStatement stmt = DBConnection.prepare(confirmTaskStatement);
+			stmt.setInt(1, task_id);
+			stmt.executeUpdate();
+		
+		}catch(SQLException e) {
+			
+		}
+	}
 
 }

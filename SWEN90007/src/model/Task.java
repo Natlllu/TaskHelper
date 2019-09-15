@@ -14,7 +14,7 @@ public class Task {
     private String task_description;
     private float task_budget;
     private int task_status;
-    private User user;
+//    private User user;
     
     public Task(int task_id, int customer_id, int expert_id, String task_name, Timestamp task_time,
 			String location, String contact, String task_description, float task_budget, int task_status) {

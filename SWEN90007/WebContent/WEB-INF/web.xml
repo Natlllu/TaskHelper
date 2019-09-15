@@ -76,4 +76,12 @@
     <servlet-name>AddTask</servlet-name>
     <url-pattern>/customerService/AddTask</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ConfirmTask</servlet-name>
+    <servlet-class>customerService.ConfirmTask</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConfirmTask</servlet-name>
+    <url-pattern>/customerService/ConfirmTask</url-pattern>
+  </servlet-mapping>
 </web-app>
