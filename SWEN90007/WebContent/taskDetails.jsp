@@ -109,10 +109,14 @@ if(status == "waiting to be confirmed"){
     <th>Task Status</th>
     <th><input type='text' name="task_status" value = "<%= status%>" readonly></input></th>
   </tr>
-    <tr>
-
-    <th><input type="submit" value="Update Task"/>  </th>
-  </tr>
+  <% if (status == "unaccepted" | status == "accepted but not finished"){
+	  out.println("<tr><th><input type=\"submit\" value=\"Update Task\"/>  </th></tr>");
+  }else{
+	  
+  }
+	  %>
+  
+    
   
         </table>
               </form>
