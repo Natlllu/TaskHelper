@@ -1,4 +1,4 @@
-package customerService;
+package taskHelperController;
 import model.*;
 import java.io.IOException;
 import java.util.List;
@@ -58,9 +58,9 @@ public class AddTask extends HttpServlet {
 		
 		String  task_name  = request.getParameter("task_name");
 	//	int customer_id = Integer.parseInt(request.getParameter("customer_id"));
-
+//		java.util.Date
 		java.sql.Timestamp task_time = java.sql.Timestamp.valueOf( request.getParameter("task_time") ) ;
-		
+		//task_time.get
 		String location  = request.getParameter("location");
 		String contact  = request.getParameter("contact");		
 		String task_description  = request.getParameter("task_description");

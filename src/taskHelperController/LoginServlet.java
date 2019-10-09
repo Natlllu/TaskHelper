@@ -1,4 +1,4 @@
-package authentication;
+package taskHelperController;
 
 import java.io.IOException;
 
@@ -25,10 +25,13 @@ public class LoginServlet extends HttpServlet{
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
+		
 		String email = request.getParameter("email");
 		String password  = request.getParameter("password");
 		UserMapper login = new UserMapper();
-		HttpSession session=request.getSession();
+		
+		Session.refreshSession(request.getSession());
+		
 
 		boolean result = login.findUser(email, password);
 		
@@ -37,10 +40,12 @@ public class LoginServlet extends HttpServlet{
 			int user_id = UserMapper.ExtractUserID(email, password);
 			User user_type=UserMapper.ExtractUserObject(email, password);
 			if (user_type.get_user_type()==0) {// 0 is customer
+				HttpSession session=request.getSession();
                 session.setAttribute("userId",user_id);
 			    request.getRequestDispatcher("/ViewTasks.jsp").forward(request, response);
 			}
 		    else {
+		    	HttpSession session=request.getSession();
 			    	session.setAttribute("userId",user_id);
 				    request.getRequestDispatcher("/ExpertMainPage.jsp").forward(request, response);
 			    }

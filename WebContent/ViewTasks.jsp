@@ -13,8 +13,11 @@
 <body>
 
 <h1>View Tasks</h1>
- <a href="/heroku/addTask.jsp"> ADD</a>
+ <a href="/heroku/addTask.jsp"> ADD New Tasks</a>
  
+  <form action = "../taskHelperController/LogoutServlet" method="get">
+    	<button type="submit" name="View" formaction="/heroku/taskHelperController/LogoutServlet">Logout</button>
+        </form>	 
  			
 <table>
 	<tr>
@@ -46,8 +49,8 @@
     	<%System.out.println(task.getTask_id()); %>
     	
     	<th>
- 		<form action = "../customerService/ViewDetails" method="post">
-    	<button value="<%=task.getTask_id()%>" type="submit" name="View" formaction="../customerService/ViewDetails">Details</button>
+ 		<form action = "../taskHelperController/ViewDetails" method="post">
+    	<button value="<%=task.getTask_id()%>" type="submit" name="View" formaction="../taskHelperController/ViewDetails">Details</button>
              </form>	    	 
  	</th>
  	
@@ -56,7 +59,7 @@
  	    <%if(task.getTask_status()==0) {%>
  	    
  	    
- 	    <form action = "../customerService/Update" method="post">
+ 	    <form action = "../taskHelperController/Update" method="post">
 <button value="<%=task.getTask_id()%>" type="submit" name="Update" formaction="../customerService/Update">Update</button>    	
 
 </form>
@@ -72,8 +75,8 @@
  	%>
  	<%if(task.getTask_status()==0) {%>
               <th>
-    	<form action = "../customerService/DeleteTask" method="post">
-    	<button value="<%=task.getTask_id()%>" type="submit" name="Delete" formaction="../customerService/DeleteTask">Delete</button>
+    	<form action = "../taskHelperController/DeleteTask" method="post">
+    	<button value="<%=task.getTask_id()%>" type="submit" name="Delete" formaction="../taskHelperController/DeleteTask">Delete</button>
              </form>	    
              </th>	
              
@@ -88,8 +91,8 @@
              
              <%if(task.getTask_status()==2) {%>
               <th>
-    	<form action = "../customerService/ConfirmTask" method="post">
-    	<button value="<%=task.getTask_id()%>" type="submit" name="Confirm" formaction="../customerService/ConfirmTask">Confirm</button>
+    	<form action = "../taskHelperController/ConfirmTask" method="post">
+    	<button value="<%=task.getTask_id()%>" type="submit" name="Confirm" formaction="../taskHelperController/ConfirmTask">Confirm</button>
              </form>	    
              </th>	
              

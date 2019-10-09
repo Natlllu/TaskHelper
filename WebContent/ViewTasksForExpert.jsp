@@ -15,6 +15,11 @@
 <h1>My Tasks(You are expert!!!)</h1>
  
  <a href="/heroku/ExpertMainPage.jsp">Main page</a>			
+ 
+ <form action = "../taskHelperController/LogoutServlet" method="get">
+    	<button type="submit" name="View" formaction="/heroku/taskHelperController/LogoutServlet">Logout</button>
+        </form>	 
+ 
 <table>
 	<tr>
     	<th>Task</th>
@@ -44,15 +49,15 @@
     	<%System.out.println(task.getTask_id()); %>
     	
     	<th>
- 		<form action = "../customerService/ViewDetails" method="post">
-    	<button value="<%=task.getTask_id()%>" type="submit" name="View" formaction="/heroku/customerService/ViewDetails">Details</button>
+ 		<form action = "../taskHelperController/ViewDetails" method="post">
+    	<button value="<%=task.getTask_id()%>" type="submit" name="View" formaction="/heroku/taskHelperController/ViewDetails">Details</button>
         </form>	    	 
  	</th>
  	     <%if(task.getTask_status()==1) {%>
  	
 <th>
- 		<form action = "/heroku/customerService/ExpertsFinishTask" method="post">
-    	<button value="<%=task.getTask_id()%>" type="submit" name="Finish" formaction="/heroku/customerService/ExpertsFinishTask">Finish</button>
+ 		<form action = "/heroku/taskHelperController/ExpertsFinishTask" method="post">
+    	<button value="<%=task.getTask_id()%>" type="submit" name="Finish" formaction="/heroku/taskHelperController/ExpertsFinishTask">Finish</button>
         </form>	    	 
  	</th>
 <%
@@ -63,8 +68,8 @@
   <%if(task.getTask_status()==1) {%>
  	
 <th>
- 		<form action = "/heroku/customerService/ExpertsCancelTask" method="post">
-    	<button value="<%=task.getTask_id()%>" type="submit" name="Cancel" formaction="/heroku/customerService/ExpertsCancelTask">Cancel</button>
+ 		<form action = "/heroku/taskHelperController/ExpertsCancelTask" method="post">
+    	<button value="<%=task.getTask_id()%>" type="submit" name="Cancel" formaction="/heroku/taskHelperController/ExpertsCancelTask">Cancel</button>
         </form>	    	 
  	</th>
 <%

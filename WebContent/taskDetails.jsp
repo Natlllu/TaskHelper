@@ -11,7 +11,7 @@
 <h3>Task Details</h3>
 
 <div>
-<form action="PassDetails" method="post">
+<form action="../taskHelperController/ViewDetails" method="get">
 <input type="hidden" name="email" value="${email}"/>
 <input type="hidden" name="password" value="${password}"/>
 <input type="hidden" name="task_id" value="${task_id}"/>

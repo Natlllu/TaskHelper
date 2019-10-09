@@ -226,7 +226,7 @@ button:focus {
 <title>Register</title>
 </head>
 <body>
-<form action="/heroku/authentication/RegisterServlet" method="post">
+<form action="/heroku/taskHelperController/RegisterServlet" method="post">
 
 
 <div class='bold-line'></div>

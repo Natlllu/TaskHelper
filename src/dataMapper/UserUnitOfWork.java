@@ -1,8 +1,8 @@
-package model;
+package dataMapper;
 
 import java.util.ArrayList;
 
-import dataMapper.UserMapper;
+import model.User;
 
 
 

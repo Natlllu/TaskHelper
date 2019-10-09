@@ -11,11 +11,13 @@
 <h3> My email is ${email} (just for test)</h3>
 <h3> My password is ${password} (just for test)</h3> --%>
 <div>
-<form action="/heroku/customerService/AddTask" method="post">
+<form action="/heroku/taskHelperController/AddTask" method="post">
 <table>
 <tr>
 
 <p>This is <%=session.getAttribute("userId")%>   of user_id!! </p>
+<a href="ViewTasks.jsp">my tasks</a>
+
     <th>Task Name</th>
     <th><input type='text' name="task_name"></input></th>
   </tr>

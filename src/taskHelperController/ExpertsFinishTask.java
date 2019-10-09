@@ -1,4 +1,4 @@
-package authentication;
+package taskHelperController;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,33 +6,30 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import dataMapper.TaskMapper;
 
 /**
- * Servlet implementation class LogoutServlet
+ * Servlet implementation class ExpertsFinishTask
  */
-@WebServlet("/LogoutServlet")
-public class LogoutServlet extends HttpServlet {
+@WebServlet("/ExpertsFinishTask")
+public class ExpertsFinishTask extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutServlet() {
+    public ExpertsFinishTask() {
         super();
         // TODO Auto-generated constructor stub
+        
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());	
-		HttpSession session=request.getSession();  
-        session.invalidate();  
-		request.logout();	
-		request.getRequestDispatcher("login.jsp").include(request, response);  
+		
 	}
 
 	/**
@@ -40,7 +37,17 @@ public class LogoutServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		response.setContentType("text/html");
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		
 
+		int task_id = Integer.parseInt(request.getParameter("Finish"));
+	
+		System.out.println("finished task id is "+task_id);
+
+		TaskMapper.changeTaskStatusToFinish(task_id);		
+		request.getRequestDispatcher("/ViewTasksForExpert.jsp").forward(request, response);
+
+	}
 }

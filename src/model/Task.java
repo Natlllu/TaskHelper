@@ -30,7 +30,11 @@ public class Task {
 		this.task_status = task_status;  //0 is no one accepts it; 1 is someone already accepts it.
 	}
       
-    public int getTask_id() {
+    public Task() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getTask_id() {
 		return task_id;
 	}
 	public void setTask_id(int task_id) {

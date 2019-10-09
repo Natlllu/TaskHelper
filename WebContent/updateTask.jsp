@@ -11,7 +11,7 @@
 <h3>Task Details</h3>
 
 <div>
-<form action= "../customerService/UpdateTask"method="post">
+<form action= "../taskHelperController/UpdateTask"method="post">
 <input type="hidden" name="email" value="${email}"/>
 <input type="hidden" name="password" value="${password}"/>
 <input type="hidden" name="task_id" value="${task_id}"/>
@@ -91,7 +91,7 @@
         </table>
 
         
-        <button value="${task_id}" type="submit" name="Save" formaction="../customerService/UpdateTask">Save</button>  
+        <button value="${task_id}" type="submit" name="Save" formaction="../taskHelperController/UpdateTask">Save</button>  
         
               </form>
              

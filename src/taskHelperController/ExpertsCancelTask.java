@@ -1,4 +1,4 @@
-package customerService;
+package taskHelperController;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import dataMapper.TaskMapper;
 
 /**
- * Servlet implementation class DeleteTask
+ * Servlet implementation class CancelTask
  */
-@WebServlet("/DeleteTask")
-public class DeleteTask extends HttpServlet {
+@WebServlet("/CancelTask")
+public class ExpertsCancelTask extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteTask() {
+    public ExpertsCancelTask() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,8 +28,8 @@ public class DeleteTask extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -37,20 +37,18 @@ public class DeleteTask extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		int task_id = Integer.parseInt(request.getParameter("Delete"));
-	//	String email = request.getParameter("email");
-	//	String password = request.getParameter("password");
+		response.setContentType("text/html");
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
 		
-		System.out.println("this is task id in delete function"+"task_id");
-		TaskMapper.deleteTask(task_id);
-		System.out.println("delete success");
-		//request.setAttribute("email", email);
-		//request.setAttribute("password", password);
-		
-		request.getRequestDispatcher("/ViewTasks.jsp").forward(request, response);
-		doGet(request, response);
+
+		int task_id = Integer.parseInt(request.getParameter("Cancel"));
+	
+		System.out.println("Canceled task id is "+task_id);
+
+		TaskMapper.cancelTask(task_id);		
+		request.getRequestDispatcher("/ViewTasksForExpert.jsp").forward(request, response);
+
 	}
 
 }

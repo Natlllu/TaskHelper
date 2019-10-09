@@ -97,4 +97,10 @@ public class User {
 			}
 	}
 
+
+	public static User getUser(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

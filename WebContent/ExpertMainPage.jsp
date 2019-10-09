@@ -14,6 +14,10 @@
 <h1>All Tasks from customers</h1>
 
  <a  href="/heroku/ViewTasksForExpert.jsp">My Task</a>
+ 
+  <form action = "../taskHelperController/LogoutServlet" method="get">
+    	<button type="submit" name="View" formaction="/heroku/taskHelperController/LogoutServlet">Logout</button>
+        </form>	 
 <table>
     <tr>
     	<th>Task</th>
@@ -40,14 +44,14 @@
     	<%System.out.println(task.getTask_id()); %>
     	
     	<th>
- 		<form action = "/heroku/customerService/ViewDetails" method="post">
-    	<button value="<%=task.getTask_id()%>" type="submit" name="View" formaction="../customerService/ViewDetails">Details</button>
+ 		<form action = "/heroku/taskHelperController/ViewDetails" method="post">
+    	<button value="<%=task.getTask_id()%>" type="submit" name="View" formaction="../taskHelperController/ViewDetails">Details</button>
              </form>	    	 
  	</th>
  	
  	
  	<th>
- 		<th><a href="/heroku/customerService/AcceptTask?taskId=<%=task.getTask_id()%>&userId=<%=session.getAttribute("userId")%>"> Accept</a>
+ 		<th><a href="/heroku/taskHelperController/AcceptTask?taskId=<%=task.getTask_id()%>&userId=<%=session.getAttribute("userId")%>"> Accept</a>
  	</th>
  	
  	

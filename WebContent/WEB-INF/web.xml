@@ -6,102 +6,102 @@
   </welcome-file-list>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>authentication.LoginServlet</servlet-class>
+    <servlet-class>taskHelperController.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/authentication/LoginServlet</url-pattern>
+    <url-pattern>/taskHelperController/LoginServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>authentication.LogoutServlet</servlet-class>
+    <servlet-class>taskHelperController.LogoutServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/authentication/LogoutServlet</url-pattern>
+    <url-pattern>/taskHelperController/LogoutServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>authentication.RegisterServlet</servlet-class>
+    <servlet-class>taskHelperController.RegisterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/authentication/RegisterServlet</url-pattern>
+    <url-pattern>/taskHelperController/RegisterServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ViewDetails</servlet-name>
-    <servlet-class>customerService.ViewDetails</servlet-class>
+    <servlet-class>taskHelperController.ViewDetails</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewDetails</servlet-name>
-    <url-pattern>/customerService/ViewDetails</url-pattern>
+    <url-pattern>/taskHelperController/ViewDetails</url-pattern>
   </servlet-mapping>
    <servlet>
     <servlet-name>AcceptTask</servlet-name>
-    <servlet-class>customerService.AcceptTask</servlet-class>
+    <servlet-class>taskHelperController.AcceptTask</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AcceptTask</servlet-name>
-    <url-pattern>/customerService/AcceptTask</url-pattern>
+    <url-pattern>/taskHelperController/AcceptTask</url-pattern>
   </servlet-mapping>
      <servlet>
     <servlet-name>ExpertsFinishTask</servlet-name>
-    <servlet-class>customerService.ExpertsFinishTask</servlet-class>
+    <servlet-class>taskHelperController.ExpertsFinishTask</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ExpertsFinishTask</servlet-name>
-    <url-pattern>/customerService/ExpertsFinishTask</url-pattern>
+    <url-pattern>/taskHelperController/ExpertsFinishTask</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ExpertsCancelTask</servlet-name>
-    <servlet-class>customerService.ExpertsCancelTask</servlet-class>
+    <servlet-class>taskHelperController.ExpertsCancelTask</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ExpertsCancelTask</servlet-name>
-    <url-pattern>/customerService/ExpertsCancelTask</url-pattern>
+    <url-pattern>/taskHelperController/ExpertsCancelTask</url-pattern>
   </servlet-mapping>
  
 
   <servlet>
     <servlet-name>Update</servlet-name>
-    <servlet-class>customerService.Update</servlet-class>
+    <servlet-class>taskHelperController.Update</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Update</servlet-name>
-    <url-pattern>/customerService/Update</url-pattern>
+    <url-pattern>/taskHelperController/Update</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>UpdateTask</servlet-name>
-    <servlet-class>customerService.UpdateTask</servlet-class>
+    <servlet-class>taskHelperController.UpdateTask</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateTask</servlet-name>
-    <url-pattern>/customerService/UpdateTask</url-pattern>
+    <url-pattern>/taskHelperController/UpdateTask</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>DeleteTask</servlet-name>
-    <servlet-class>customerService.DeleteTask</servlet-class>
+    <servlet-class>taskHelperController.DeleteTask</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DeleteTask</servlet-name>
-    <url-pattern>/customerService/DeleteTask</url-pattern>
+    <url-pattern>/taskHelperController/DeleteTask</url-pattern>
   </servlet-mapping>
   
 
   <servlet>
     <servlet-name>AddTask</servlet-name>
-    <servlet-class>customerService.AddTask</servlet-class>
+    <servlet-class>taskHelperController.AddTask</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddTask</servlet-name>
-    <url-pattern>/customerService/AddTask</url-pattern>
+    <url-pattern>/taskHelperController/AddTask</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ConfirmTask</servlet-name>
-    <servlet-class>customerService.ConfirmTask</servlet-class>
+    <servlet-class>taskHelperController.ConfirmTask</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ConfirmTask</servlet-name>
-    <url-pattern>/customerService/ConfirmTask</url-pattern>
+    <url-pattern>/taskHelperController/ConfirmTask</url-pattern>
   </servlet-mapping>
 </web-app>
