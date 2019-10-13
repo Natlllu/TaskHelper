@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="heroku">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="slf4j-simple-1.7.12.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/slf4j-simple-1.7.12/slf4j-simple-1.7.12">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="shiro-web-1.4.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/shiro-web-1.4.1/shiro-web-1.4.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="postgresql-42.2.6.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/postgresql-42.2.6/postgresql-42.2.6">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jcl-over-slf4j-1.6.4.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jcl-over-slf4j-1.6.4/jcl-over-slf4j-1.6.4">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-beanutils-1.9.2.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/commons-beanutils-1.9.2/commons-beanutils-1.9.2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.21.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/slf4j-api-1.7.21/slf4j-api-1.7.21">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="shiro-core-1.4.1.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/shiro-core-1.4.1/shiro-core-1.4.1">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="heroku"/>
+        <property name="java-output-path" value="/heroku/build/classes"/>
+    </wb-module>
+</project-modules>
